@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ApplicationConstants {
@@ -10,5 +9,16 @@ class ApplicationConstants {
     color: Colors.white,
     fontWeight: FontWeight.bold,
     fontSize: 48,
+  );
+
+  static const TextStyle getPokemonNameTextStyle = TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 30,
+  );
+
+  static const TextStyle getPokemonTypeChipTextStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 20,
   );
 }
