@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/constants/app_constants.dart';
 import 'package:flutter_pokedex/constants/ui_helper.dart';
 import 'package:flutter_pokedex/model/pokemon_model.dart';
+import 'package:flutter_pokedex/widgets/poke_img_and_ball.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PokeListItem extends StatelessWidget {
@@ -18,7 +19,7 @@ class PokeListItem extends StatelessWidget {
       ),
       elevation: 3,
       shadowColor: Colors.white,
-      color: Colors.red.shade200,
+      color: UiHelper.getColorFromType(pokemon.type![0]),
       child: Padding(
         padding: UiHelper.getDefaultPadding(),
         child: Column(
@@ -35,6 +36,7 @@ class PokeListItem extends StatelessWidget {
                 style: ApplicationConstants.getPokemonTypeChipTextStyle,
               ),
             ),
+            Expanded(child: PokeImageAndBall(pokemon: pokemon)),
           ],
         ),
       ),
