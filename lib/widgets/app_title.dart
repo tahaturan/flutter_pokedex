@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/constants/app_constants.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppTitle extends StatelessWidget {
   const AppTitle({Key? key}) : super(key: key);
@@ -9,14 +10,18 @@ class AppTitle extends StatelessWidget {
     return Stack(
       children: [
         const Align(
-            alignment: Alignment.topLeft,
-            child: Text(ApplicationConstants.appTitleText)),
+          alignment: Alignment.topLeft,
+          child: Text(
+            ApplicationConstants.appTitleText,
+            style: ApplicationConstants.appTitleTextStyle,
+          ),
+        ),
         Align(
           alignment: Alignment.topRight,
           child: Image.asset(
             ApplicationConstants.pokeBallImageUrl,
-            width: 100,
-            height: 100,
+            width: 100.w,
+            height: 100.h,
             fit: BoxFit.fitWidth,
           ),
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/pages/home_page.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,13 +12,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return ScreenUtilInit(
+      designSize: const Size(412, 732),
+      builder: (context, child) => MaterialApp(
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          textTheme: GoogleFonts.latoTextTheme(),
+        ),
+        home: const HomePage(),
       ),
-      home: const HomePage(),
     );
   }
 }
