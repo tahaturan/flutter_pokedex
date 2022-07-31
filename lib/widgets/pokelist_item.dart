@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_pokedex/constants/app_constants.dart';
+import 'package:flutter_pokedex/constants/ui_helper.dart';
 import 'package:flutter_pokedex/model/pokemon_model.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,19 +19,24 @@ class PokeListItem extends StatelessWidget {
       elevation: 3,
       shadowColor: Colors.white,
       color: Colors.red.shade200,
-      child: Column(
-        children: [
-          Text(
-            pokemon.name ?? "N/A",
-            style: ApplicationConstants.getPokemonNameTextStyle,
-          ),
-          Chip(
-            label: Text(
-              pokemon.type![0],
-              style: ApplicationConstants.getPokemonTypeChipTextStyle,
+      child: Padding(
+        padding: UiHelper.getDefaultPadding(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              pokemon.name ?? "N/A",
+              style: ApplicationConstants.getPokemonNameTextStyle,
             ),
-          ),
-        ],
+            Chip(
+              label: Text(
+                pokemon.type![0],
+                style: ApplicationConstants.getPokemonTypeChipTextStyle,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

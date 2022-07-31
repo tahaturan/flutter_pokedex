@@ -13,7 +13,7 @@ class AppTitle extends StatelessWidget {
         children: [
           Padding(
             padding: UiHelper.getDefaultPadding(),
-            child: const Align(
+            child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 ApplicationConstants.appTitleText,
