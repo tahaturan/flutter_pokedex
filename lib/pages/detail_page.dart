@@ -13,6 +13,12 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return ScreenUtil().orientation == Orientation.portrait
+        ? _buildPortraitBody(context)
+        : _buildLandscapeBody(context);
+  }
+
+  Scaffold _buildPortraitBody(BuildContext context) {
     return Scaffold(
       backgroundColor: UiHelper.getColorFromType(pokemon.type![0]),
       body: SafeArea(
@@ -63,6 +69,58 @@ class DetailPage extends StatelessWidget {
                 ],
               ),
             ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Scaffold _buildLandscapeBody(BuildContext context) {
+    return Scaffold(
+      backgroundColor: UiHelper.getColorFromType(pokemon.type![0]),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: UiHelper.getDefaultPadding(),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back_ios_new),
+                iconSize: 20.w,
+              ),
+            ),
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        PokeTypeAndName(pokemon: pokemon),
+                        Hero(
+                          tag: pokemon.id!,
+                          child: CachedNetworkImage(
+                            imageUrl: pokemon.img ?? "",
+                            height: 0.25.sw,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                      flex: 5,
+                      child: Padding(
+                        padding: UiHelper.getDefaultPadding(),
+                        child: PokeInformation(pokemon: pokemon),
+                      )),
+                ],
+              ),
+            )
           ],
         ),
       ),
