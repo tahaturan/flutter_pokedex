@@ -15,7 +15,7 @@ class ApplicationConstants {
   static TextStyle getPokemonNameTextStyle = TextStyle(
     color: Colors.white,
     fontWeight: FontWeight.bold,
-    fontSize: _calculateFontSize(22),
+    fontSize: _calculateFontSize(24),
   );
 
   static TextStyle getPokemonTypeChipTextStyle = TextStyle(
