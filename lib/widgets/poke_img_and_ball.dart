@@ -23,13 +23,16 @@ class PokeImageAndBall extends StatelessWidget {
         ),
         Align(
           alignment: Alignment.bottomRight,
-          child: CachedNetworkImage(
-            imageUrl: pokemon.img ?? "",
-            width: UiHelper.calculatePokeImageAndBallSize(),
-            height: UiHelper.calculatePokeImageAndBallSize(),
-            placeholder: (context, url) =>
-                const CircularProgressIndicator(color: Colors.black),
-            errorWidget: (context, url, error) => const Icon(Icons.error),
+          child: Hero(
+            tag: pokemon.id!,
+            child: CachedNetworkImage(
+              imageUrl: pokemon.img ?? "",
+              width: UiHelper.calculatePokeImageAndBallSize(),
+              height: UiHelper.calculatePokeImageAndBallSize(),
+              placeholder: (context, url) =>
+                  const CircularProgressIndicator(color: Colors.black),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
           ),
         ),
       ],
